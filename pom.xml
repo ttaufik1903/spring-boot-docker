@@ -40,8 +40,22 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<skip>false</skip>
+					<images>
+						<image>
+							<build>
+								<entryPoint>
+									java -XX:+UnlockExperimentalVMOptions
+									-XX:+UseCGroupMemoryLimitForHeap -cp '/maven/*'
+									play.core.server.ProdServerStart
+								</entryPoint>
+							</build>
+						</image>
+					</images>
+				</configuration>
 			</plugin>
 		</plugins>
 		<finalName>spring-boot-docker</finalName>

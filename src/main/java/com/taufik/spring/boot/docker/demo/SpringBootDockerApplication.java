@@ -11,7 +11,7 @@ public class SpringBootDockerApplication {
 
 	@GetMapping("/message")
 	public String getMessage() {
-		System.out.println("====belaja docker====");
+		System.out.println("====belajar docker integrasi jenkins====");
 		return "Welcome to java docker... !!";
 	}
 
